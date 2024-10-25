@@ -15,28 +15,27 @@ type UsuariosType = {
   update_at:string
 }
 
+
 function App() {
-  const [nome, setNome] = useState("")
-  const [produtos, setProdutos] = useState<ProdutoType []>([])
-  const [usuarios, setUsuarios] = useState<UsuariosType []>([])
+  const [produtos, setProdutos] = useState<ProdutoType[]>([])
+  const [usuarios, setUsuarios] = useState<UsuariosType[]>([])
 
   useEffect(() => {
-    setNome("Narriane Silva")
     fetch("https://one022a-marketplace-aq8p.onrender.com/produtos")
       .then(resposta => resposta.json())
       .then(dados => setProdutos(dados))
-    }, [])
-    
-      useEffect(() => {
-      fetch("https://one022a-marketplace-aq8p.onrender.com/usuarios")
+  }, [])
+
+  useEffect(() => {
+    fetch("https://one022a-marketplace-aq8p.onrender.com/usuarios")
       .then(resposta => resposta.json())
       .then(dados => setUsuarios(dados))
-}, [])
+  }, [])
 
 return (
   <>
-    <h1>{nome}</h1>
     <div className="itens-container">
+    <h1>Produtos</h1>
       <div className="produtos-container">
         {produtos.map(produto => (
           <div key={produto.id} className="produto-item">
@@ -51,15 +50,16 @@ return (
       </div>
 
       <div className="usuarios-container">
+      <h1>Usuario</h1>
         {usuarios.map(usuario => (
           <div key={usuario.id} className="usuario-item">
             <h2>{usuario.nome}</h2>
-            <p>{usuario.email}</p>
-            <div className='data'>
-              <p>{usuario.created_at}</p>
-              <p>{usuario.update_at}</p>
+            <p><strong>Email:</strong> {usuario.email}</p>
+                    {/* Formatando e exibindo a data de criação */}
+                    <p><strong>Data de Criação:</strong> {new Date(usuario.created_at).toLocaleString()}</p>
+                    {/* Formatando e exibindo a última atualização */}
+                    <p><strong>Última Atualização:</strong> {new Date(usuario.update_at).toLocaleString()}</p>
             </div>
-          </div>
         ))}
       </div>
     </div>

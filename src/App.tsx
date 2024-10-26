@@ -49,8 +49,9 @@ return (
         ))}
       </div>
 
+      
+      <h1>Usuarios</h1>
       <div className="usuarios-container">
-      <h1>Usuario</h1>
         {usuarios.map(usuario => (
           <div key={usuario.id} className="usuario-item">
             <h2>{usuario.nome}</h2>

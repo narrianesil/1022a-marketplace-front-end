@@ -55,9 +55,9 @@ return (
         {usuarios.map(usuario => (
           <div key={usuario.id} className="usuario-item">
             <h2>{usuario.nome}</h2>
-            <p><strong>Email:</strong> {usuario.email}</p>
+            <p><strong>E-mail:</strong> {usuario.email}</p>
                     {/* Formatando e exibindo a data de criação */}
-                    <p><strong>Data de Criação:</strong> {new Date(usuario.created_at).toLocaleString()}</p>
+                    <p><strong>Data de Cadastro:</strong> {new Date(usuario.created_at).toLocaleString()}</p>
                     {/* Formatando e exibindo a última atualização */}
                     <p><strong>Última Atualização:</strong> {new Date(usuario.update_at).toLocaleString()}</p>
             </div>

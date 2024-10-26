@@ -35,7 +35,7 @@ function App() {
 return (
   <>
     <div className="itens-container">
-    <h1>Produtos</h1>
+      <h1>Produtos</h1>
       <div className="produtos-container">
         {produtos.map(produto => (
           <div key={produto.id} className="produto-item">
@@ -49,7 +49,6 @@ return (
         ))}
       </div>
 
-      
       <h1>Usuarios</h1>
       <div className="usuarios-container">
         {usuarios.map(usuario => (
